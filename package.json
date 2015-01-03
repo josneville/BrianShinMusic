@@ -1,0 +1,15 @@
+{
+  "name": "brianShin",
+  "version": "1.0.0",
+  "description": "Brian Shin's Music Website",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Neville Jos",
+  "license": "ISC",
+  "dependencies": {
+  	"express": "*",
+	"morgan": "*"
+  }
+}
