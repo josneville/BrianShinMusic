@@ -1,0 +1,21 @@
+<html ng-app="bsm">
+	<head>
+		<meta name='viewport' content='width=device-width, user-scalable=0, initial-scale=1.0' />	
+		<link rel="stylesheet" href="stylesheets/bundle.min.css">
+	</head>
+	<body ng-controller="main">
+		<div class="header">
+			<h1>#music</h1>
+			<h1>#videos</h1>
+			<img class="logo" src="images/logo.png">
+			<h1>#photos</h1>
+			<h1>#contact</h1>
+		</div>
+		<div class="wrapper">
+			<div class="small-box" ng-repeat="post in data.posts">
+				<img ng-src="{{post.photos[0].original_size.url}}">
+			</div>
+		</div>
+		<script src="js/bundle.min.js"></script>
+	</body>
+</html>
