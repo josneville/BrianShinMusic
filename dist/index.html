@@ -5,15 +5,22 @@
 	</head>
 	<body ng-controller="main">
 		<div class="header">
-			<h1>#music</h1>
-			<h1>#videos</h1>
+			<h2>#music</h2>
+			<h2>#videos</h2>
 			<img class="logo" src="images/logo.png">
-			<h1>#photos</h1>
-			<h1>#contact</h1>
+			<h2>#photos</h2>
+			<h2>#contact</h2>
 		</div>
 		<div class="wrapper">
-			<div class="small-box" ng-repeat="post in data.posts">
-				<img ng-src="{{post.photos[0].original_size.url}}">
+			<div class="split">
+				<div ng-repeat="post in data.posts" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-show="hidingAlgo($index + 1)">
+					<img ng-src="{{post.photos[0].original_size.url}}">
+				</div>
+			</div>
+			<div class="split">
+				<div ng-repeat="post in data.posts" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-hide="hidingAlgo($index + 1)">
+					<img ng-src="{{post.photos[0].original_size.url}}">
+				</div>
 			</div>
 		</div>
 		<script src="js/bundle.min.js"></script>

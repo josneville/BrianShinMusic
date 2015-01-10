@@ -34,7 +34,7 @@ body {
 	justify-content: space-around;
 	align-items: center;
 
-	h1 {
+	h2 {
 		font-weight: bold;
 		color: black;
 		cursor: pointer;
@@ -42,16 +42,31 @@ body {
 }
 
 .wrapper {
+	width: 100%;
+}
+
+.split {
+	margin: 0;
+	padding: 0;
+	float: left;
 	display: flex;
 	justify-content: flex-start;
-	flex-wrap: wrap; 
+	flex-wrap: wrap;
+	width: 50%;
 }
 
 .small-box {
-	width: 25%;
+	width: 50%;
 	img {
 		width: 100%;
 		height: auto;
 	}	
 }
 
+.big-box {
+	width: 100%;
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
