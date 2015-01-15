@@ -66,7 +66,7 @@ gulp.task('js', function () {
     		.bundle()
     		.pipe(source('bundle.min.js')) // gives streaming vinyl file object
     		.pipe(buffer()) // <----- convert from streaming to buffered vinyl file object
-				.pipe( uglify( options.uglify ) )
+				//.pipe( uglify( options.uglify ) )
         .pipe( gulp.dest( dests.js ) )
         .pipe( notify( { message: 'Scripts task complete.' } ) )
 });
@@ -97,13 +97,11 @@ gulp.task('watch', function () {
 		gulp.watch( paths.html, ['html'] );
 });
 
-//Develop
-gulp.task('develop', function() {
-	nodemon({script: 'server.js'})
+gulp.task('server', function() {
+	nodemon({script: 'server.js'});
 });
-
 
 // Global
 gulp.task('default', ['clean'], function() {
-    gulp.start('watch','css', 'js', 'images', 'html', 'fonts', 'develop');
+    gulp.start('watch','css', 'js', 'images', 'html', 'fonts', 'server');
 });

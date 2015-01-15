@@ -1,6 +1,6 @@
 <html ng-app="bsm">
 	<head>
-		<meta name='viewport' content='width=device-width, user-scalable=0, initial-scale=1.0' />	
+		<meta name='viewport' content='width=device-width, user-scalable=0, initial-scale=1.0' />
 		<link rel="stylesheet" href="stylesheets/bundle.min.css">
 	</head>
 	<body ng-controller="main">
@@ -13,14 +13,10 @@
 		</div>
 		<div class="wrapper">
 			<div class="split">
-				<div ng-repeat="post in data.posts" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-show="hidingAlgo($index + 1)">
-					<img ng-src="{{post.photos[0].original_size.url}}">
-				</div>
+				<tile ng-repeat="post in data" post="post" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-show="hidingAlgo($index + 1)" resize />
 			</div>
 			<div class="split">
-				<div ng-repeat="post in data.posts" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-hide="hidingAlgo($index + 1)">
-					<img ng-src="{{post.photos[0].original_size.url}}">
-				</div>
+				<tile ng-repeat="post in data" post="post" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-hide="hidingAlgo($index + 1)" resize />
 			</div>
 		</div>
 		<script src="js/bundle.min.js"></script>

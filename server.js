@@ -17,14 +17,30 @@ var oauth = {
 
 var blog = new tumblr.Blog('musicbrianshin.tumblr.com', oauth);
 
-app.get('/data', function(req, res) {		
-	blog.posts([], function(err, result) {
+app.get('/data', function(req, res) {
+	blog.posts([], function(err, result1) {
 		if (err) {
 			res.status(400).send("Unknown error");
 			return;
-		}	
-		res.status(200).send(result);
-	});			
+		}
+    blog.video([], function(err, result2){
+      if (err) {
+        res.status(400).send("Unknown error");
+        return;
+      }
+      var photos = result1.posts;
+      var videos = result2.posts;
+      var posts = photos.concat(videos);
+      // posts.sort(function(post1, post2) {
+      //   // This is a comparison function that will result in dates being sorted in
+      //   // DESCENDING order.
+      //   if (new Date(post1.date) > new Date(post2.date)) return -1;
+      //   if (new Date(post1.date) < new Date(post2.date)) return 1;
+      //   return 0;
+      // });
+      res.status(200).send(posts);
+    });
+	});
 });
 
 app.listen(app.get('port'));
