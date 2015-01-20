@@ -39,6 +39,7 @@ setInterval(function(){
         return 0;
       });
       data = posts;
+      console.data("New data");
     });
   });
 }, 10000);
@@ -48,7 +49,27 @@ app.get('/data', function(req, res) {
     res.status(200).send(data);
   }
   else{
-    res.status(400).send("No data yet");
+    blog.posts([], function(err, result1) {
+      if (err) {
+        res.status(400).send("Unknown error");
+        return;
+      }
+      blog.video([], function(err, result2){
+        if (err) {
+          res.status(400).send("Unknown error");
+          return;
+        }
+        var photos = result1.posts;
+        var videos = result2.posts;
+        var posts = photos.concat(videos);
+        posts.sort(function(post1, post2) {
+          if (new Date(post1.date) > new Date(post2.date)) return -1;
+          if (new Date(post1.date) < new Date(post2.date)) return 1;
+          return 0;
+        });
+        res.status(200).send(data);
+      });
+    });
   }
 });
 
