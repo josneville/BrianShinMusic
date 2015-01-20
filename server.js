@@ -39,7 +39,7 @@ setInterval(function(){
         return 0;
       });
       data = posts;
-      console.data("New data");
+      console.log("New data");
     });
   });
 }, 10000);
@@ -67,7 +67,7 @@ app.get('/data', function(req, res) {
           if (new Date(post1.date) < new Date(post2.date)) return 1;
           return 0;
         });
-        res.status(200).send(data);
+        res.status(200).send(posts);
       });
     });
   }
