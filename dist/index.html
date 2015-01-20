@@ -4,27 +4,29 @@
 		<link rel="stylesheet" href="stylesheets/bundle.min.css">
 	</head>
 	<body ng-controller="main">
-		<div class="header">
-			<div class="header-text">
-				<h2 ng-click="changeFilter('audio')">Music</h2>
+		<div class="mainContent" ng-cloak>
+			<div class="header">
+				<div class="header-text">
+					<h2 ng-click="changeFilter('audio')">Music</h2>
+				</div>
+				<div class="header-text">
+					<h2 ng-click="changeFilter('video')">Videos</h2>
+				</div>
+				<img ng-click="changeFilter('')" class="logo" src="images/logo.png">
+				<div class="header-text">
+					<h2 ng-click="changeFilter('photo')">Photos</h2>
+				</div>
+				<div class="header-text">
+					<h2 ng-click="changeFilter('contact')">Contact</h2>
+				</div>
 			</div>
-			<div class="header-text">
-				<h2 ng-click="changeFilter('video')">Videos</h2>
-			</div>
-			<img ng-click="changeFilter('')" class="logo" src="images/logo.png">
-			<div class="header-text">
-				<h2 ng-click="changeFilter('photo')">Photos</h2>
-			</div>
-			<div class="header-text">
-				<h2 ng-click="changeFilter('contact')">Contact</h2>
-			</div>
-		</div>
-		<div class="wrapper">
-			<div class="split">
-				<tile ng-repeat="post in data | filter: {type: tileFilter}" post="post" index="$index" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-show="hidingAlgo($index + 1)" resize />
-			</div>
-			<div class="split">
-				<tile ng-repeat="post in data | filter: {type: tileFilter}" post="post" index="$index" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-hide="hidingAlgo($index + 1)" resize />
+			<div class="wrapper">
+				<div class="split">
+					<tile ng-repeat="post in data | filter: {type: tileFilter}" post="post" index="$index" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-show="hidingAlgo($index + 1)" resize />
+				</div>
+				<div class="split">
+					<tile ng-repeat="post in data | filter: {type: tileFilter}" post="post" index="$index" ng-class="boxType($index + 1) ? 'big-box' : 'small-box'" ng-hide="hidingAlgo($index + 1)" resize />
+				</div>
 			</div>
 		</div>
 		<script src="js/bundle.min.js"></script>
