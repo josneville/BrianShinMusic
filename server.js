@@ -18,7 +18,7 @@ var oauth = {
 var blog = new tumblr.Blog('musicbrianshin.tumblr.com', oauth);
 
 var data = {}
-
+var newData = true;
 setInterval(function(){
   blog.posts([], function(err, result1) {
     if (err) {
@@ -39,7 +39,10 @@ setInterval(function(){
         return 0;
       });
       data = posts;
-      console.log("New data");
+      if (newData) {
+        console.log(data);
+        newData = false;
+      }
     });
   });
 }, 10000);
