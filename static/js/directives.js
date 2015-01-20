@@ -20,7 +20,8 @@ module.exports = {
       terminal: true,
       link: linker,
       scope: {
-        post: '='
+        post: '=',
+        index: '='
       }
     }
   },

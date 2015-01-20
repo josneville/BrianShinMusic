@@ -1,29 +1,24 @@
 @import 'partials/normalize';
 
 @font-face {
-	font-family: tuffy;
-  src: url(../fonts/Tuffy.otf);
+	font-family: 'tuffy';
+  src: url('../fonts/Tuffy.otf');
 	font-weight: normal;
 }
 
 @font-face {
-	font-family: tuffy;
-	src: url(../fonts/Tuffy_Bold.otf);
+	font-family: 'tuffy';
 	font-weight: bold;
+	src: url('../fonts/Tuffy_Bold.otf');
 }
 
 p, a, div, h1, h2, h3, h4, h5, h6 {
-	font: tuffy;
+	font-family: 'tuffy';
 	color: white;
 }
 
 body {
 	background-color: black;
-}
-
-.logo {
-	height: 100%;
-	width: auto;
 }
 
 .header {
@@ -34,10 +29,43 @@ body {
 	justify-content: space-around;
 	align-items: center;
 
-	h2 {
-		font-weight: bold;
-		color: black;
+	.header-text {
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+
+		@media screen and (max-width: 768px) {
+	    display: none;
+	  }
+
+		h2 {
+			font-weight: bold;
+			color: black;
+			cursor: pointer;
+		}
+
+		&:hover{
+			color: red;
+			font-size: 26px;
+		}
+	}
+
+	img {
+		height: 100%;
+		width: auto;
 		cursor: pointer;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		@media screen and (max-width: 768px) {
+			width: 90%;
+			height: auto;
+		}
+		&:hover{
+			height: 110%;
+		}
 	}
 }
 
